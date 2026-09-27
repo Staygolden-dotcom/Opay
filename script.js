@@ -1,4 +1,4 @@
-  (function() {
+   (function() {
             // ========== DOM ELEMENTS ==========
             const splashScreen = document.getElementById('splashScreen');
             const loginScreen = document.getElementById('loginScreen');
