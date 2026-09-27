@@ -86,8 +86,8 @@ img {
   margin-bottom: 24px;
 }
 .splash-title {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 25px;
+  font-weight: 700;
   color: var(--navy);
   line-height: 1.15;
   max-width: 400px;
@@ -96,7 +96,7 @@ img {
 .splash-footer {
   color: var(--navy);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   margin: 0;
   max-width: 400px;
   line-height: 1.6;
