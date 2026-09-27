@@ -90,7 +90,7 @@ img {
   font-weight: 800;
   color: var(--navy);
   line-height: 1.15;
-  max-width: auto;
+  max-width: 400px;
   margin: 0 0 28px;
 }
 .splash-footer {
@@ -98,7 +98,7 @@ img {
   font-weight: 600;
   font-size: 13px;
   margin: 0;
-  max-width: auto;
+  max-width: 400px;
   line-height: 1.6;
 }
 .splash-crest {
