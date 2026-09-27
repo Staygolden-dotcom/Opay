@@ -1,337 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>OPay-</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="splash.png" style="border-radius: 50%;">
-        
-   </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OPay-</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="splash.png">
+</head>
 <body>
-    <div class="phone">
-        <!-- ========== SPLASH SCREEN ========== -->
-        <div id="splashScreen" class="screen splash-screen">
-            <div class="splash-logo">
-               <div class="splash-logo" style="
-                background: #00b876; 
-                border-radius: 50%; 
-                padding: 18px; 
-                width: 100px; 
-                height: 100px; 
-                display: flex; 
-                align-items: center; 
-                margin-top: -70px;">
-                <img src="splash.png" alt="Opay Logo" style="width: 90%; height: 90%; object-fit: contain; border-radius: 50%">
-                </div>
-            </div>
-            <div class="splash-title" style="font-family: 'Inter', Arial, sans-serif; font-weight: 800; color: #1B105E; margin-top: -80px; font-size: 27px;">We are Beyond Banking</div>
-        <div class="splash-footer" style="margin-bottom: 80px;">
-            <div class="footer-icon">
-            <img src="cbn.png" alt="NDIC Icon" style="width: 100%; height: 100%; object-fit: contain;">
-            </div>
-                <span style="font-family: 'Inter', Arial, sans-serif; color: #1B105E; font-weight: 600; ">Licensed by the <span class="cbn">CBN</span> and insured by the</span>
-                <span class="ndic">| <u>NDIC </u></span>
-        </div>
+
+  <!-- ========== SPLASH SCREEN ========== -->
+  <div id="splashScreen" class="screen splash-screen">
+    <div class="splash-logo">
+      <img src="splash.png" alt="OPay Logo">
+    </div>
+    <h1 class="splash-title">We are Beyond Banking</h1>
+    <p class="splash-footer">
+      <img src="cbn.png" alt="CBN crest" class="splash-crest">
+      Licensed by the <b>CBN</b> and insured by the <span class="splash-divider">|</span> <b class="splash-ndic">NDIC</b>
+    </p>
+  </div>
+
+  <!-- ========== LOGIN (PHONE NUMBER) SCREEN ========== -->
+  <div id="loginScreen" class="screen login-screen hidden">
+    <div class="auth-header">
+      <button class="back-btn" id="loginBackBtn" aria-label="Back"><i class="fas fa-chevron-left"></i></button>
+      <a href="#" class="help-link">Help</a>
     </div>
 
-        <!-- ========== LOGIN (PHONE) SCREEN ========== -->
-        <div id="loginScreen" class="screen login-screen hidden">
-            <div class="login-header">
-                <button class="back-btn" id="loginBackBtn"><i class="fas fa-chevron-left"></i></button>
-                <a href="#" class="help-link">Help</a>
-            </div>
-
-           <div class="login-logo">
-    <div class="logo-icon">
-        <img src="opay.png" alt="OPay Logo" style="width: 100%; height: 100%; object-fit: contain;">
+    <div class="login-logo">
+      <img src="opay.png" alt="OPay">
     </div>
-</div>
 
-            <div class="login-title">Log in to your account</div>
+    <h2 class="auth-title">Log in to your account</h2>
 
-            <div class="input-group">
-                <label>Enter your Mobile No./Email</label>
-                <input type="text" id="phoneInput" placeholder="Enter your Mobile No./Email" value="">
-            </div>
+    <fieldset class="input-group">
+      <legend>Enter your Mobile No./Email</legend>
+      <input type="text" id="phoneInput" inputmode="numeric" autocomplete="off">
+    </fieldset>
 
-            <div class="login-lost">
-                Lost Your Mobile Number, <a href="#">Change Now</a>
-            </div>
+    <p class="login-lost">Lost Your Mobile Number, <a href="#">Change Now</a></p>
 
-            <div id="loginError" class="login-error hidden">
-                <i class="fas fa-exclamation-circle"></i>
-                <span id="loginErrorText">Invalid phone number.</span>
-            </div>
-
-            <button class="login-next-btn" id="nextBtn">NEXT</button>
-
-            <div class="login-bottom-text">
-                Don't have an OPay Account yet?<br>
-                <a href="#">Click here to get one</a>
-            </div>
-        </div>
-
-        <!-- ========== PASSWORD SCREEN ========== -->
-        <div id="passwordScreen" class="screen password-screen hidden">
-            <div class="password-header">
-                <button class="back-btn" id="passwordBackBtn"><i class="fas fa-chevron-left"></i></button>
-                <a href="#" class="help-link">Help</a>
-            </div>
-
-            <div class="password-avatar">
-                 <div class="password-avatar">
-                <img src="user.png" alt="User Avatar">
-                </div>
-            </div>
-
-            <div class="password-phone" id="displayPhone">0808 8923 044</div>
-            <div class="password-welcome">Welcome back</div>
-
-            <div class="password-label">Enter your 6-digit Password to log in</div>
-            <div class="password-input-group">
-                <input type="password" id="passwordInput" placeholder="Enter 6-digit Password" maxlength="6" inputmode="numeric">
-            </div>
-
-            <div class="forgot-password">
-                <a href="#">Forgot Password?</a>
-            </div>
-
-            <div id="passwordError" class="password-error hidden">
-                <i class="fas fa-exclamation-circle"></i>
-                <span id="passwordErrorText">Incorrect password. Try again.</span>
-            </div>
-
-            <button class="password-login-btn" id="loginBtn" disabled>Log in</button>
-
-            <div class="fingerprint-link">
-                <a href="#"><i class="fas fa-fingerprint"></i> Click to log in with Fingerprint</a>
-            </div>
-
-            <div class="keypad" id="keypad">
-                <button data-key="1">1</button>
-                <button data-key="2">2</button>
-                <button data-key="3">3</button>
-                <button data-key="4">4</button>
-                <button data-key="5">5</button>
-                <button data-key="6">6</button>
-                <button data-key="7">7</button>
-                <button data-key="8">8</button>
-                <button data-key="9">9</button>
-                <button data-key="0">0</button>
-                <button data-key="delete" class="key-delete"><i class="fas fa-backspace"></i></button>
-            </div>
-        </div>
-
-        <!-- ========== HOME SCREEN ========== -->
-        <div id="homeScreen" class="screen home-screen hidden">
-            <!-- Header -->
-            <div class="home-header">
-                <div class="home-user">
-                    <div class="home-avatar">
-                        <img src="splash.png" alt="logo" style="width:40px; height:40px; border-radius:50%;"/>
-                        <div class="badge"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- Outer scalloped/laurel ring (dark gold base) -->
-    <circle cx="50" cy="50" r="42" fill="#B8860B" />
-
-    <!-- Laurel notches around the edge -->
-    <g fill="#B8860B">
-        <circle cx="50" cy="8"  r="7" />
-        <circle cx="50" cy="92" r="7" />
-        <circle cx="8"  cy="50" r="7" />
-        <circle cx="92" cy="50" r="7" />
-        <circle cx="20" cy="20" r="6" />
-        <circle cx="80" cy="20" r="6" />
-        <circle cx="20" cy="80" r="6" />
-        <circle cx="80" cy="80" r="6" />
-        <circle cx="13" cy="35" r="5" />
-        <circle cx="87" cy="35" r="5" />
-        <circle cx="13" cy="65" r="5" />
-        <circle cx="87" cy="65" r="5" />
-        <circle cx="35" cy="13" r="5" />
-        <circle cx="65" cy="13" r="5" />
-        <circle cx="35" cy="87" r="5" />
-        <circle cx="65" cy="87" r="5" />
-    </g>
-
-    <!-- Inner metallic ring (lighter gold) -->
-    <circle cx="50" cy="50" r="34" fill="#FFD700" />
-
-    <!-- Inner bright gold disc -->
-    <circle cx="50" cy="50" r="28" fill="#FFF3B0" />
-
-    <!-- Subtle inner shadow ring -->
-    <circle cx="50" cy="50" r="28" fill="none" stroke="#E6C200" stroke-width="1.5" />
-
-    <!-- Number 3 -->
-    <text x="50" y="62"
-          font-family="Arial, Helvetica, sans-serif"
-          font-size="34"
-          font-weight="700"
-          fill="#8B6508"
-          text-anchor="middle">3</text>
-</svg></div>
-                    </div>
-                    <div class="home-user-text">
-                        <h3>Hi, JAY</h3>
-                    </div>
-                </div>
-                <div class="home-header-icons">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-headset"></i>
-                        <span class="help-badge">HELP</span>
-                    </div>
-                    <div class="icon-wrapper">
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                    <div class="icon-wrapper">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge-red">14</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Balance Card -->
-            <div class="balance-card">
-                <div class="balance-top">
-                    <div class="balance-top-left">
-                        <i class="fas fa-shield-alt" style="font-size: 10px;"></i> Available Balance
-                        <i class="fas fa-eye-slash" id="toggleBalanceIcon" style="margin-left:4px; cursor:pointer;"></i>
-                    </div>
-                    <div class="balance-top-right" style="font-size: 10px;">
-                        Transaction History <i class="fas fa-chevron-right" style="font-size:10px;"></i>
-                    </div>
-                </div>
-                <div class="balance-bottom">
-                    <div class="balance-amount">
-                        <span id="balanceDisplay"style="font-size: 18px;">₦ 20,545,890.50</span>
-                    </div>
-                    <button class="add-money-btn" id="addMoneyBtn">
-                        <i class="fas fa-plus"></i> Add Money
-                    </button>
-                </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="quick-actions">
-                <div class="quick-action-item">
-                    <div class="qa-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- Chat bubble with pointed tail -->
-    <path d="
-        M30 28
-        h40
-        a14 14 0 0 1 14 14
-        v18
-        a14 14 0 0 1 -14 14
-        h-13
-        l-7 9
-        l-7 -9
-        h-13
-        a14 14 0 0 1 -14 -14
-        v-18
-        a14 14 0 0 1 14 -14
-        z
-    " fill="#1FD8A0" />
-
-    <!-- User head -->
-    <circle cx="50" cy="44" r="8" fill="#1a1a1a" />
-
-    <!-- User body (shoulders) -->
-    <path d="
-        M38 66
-        a12 9 0 0 1 24 0
-        z
-    " fill="#1a1a1a" />
-</svg></div>
-                    <span>To OPay</span>
-                </div>
-                <div class="quick-action-item">
-                    <div class="qa-icon"><i class="fa-solid fa-landmark" style="color: rgb(99, 230, 190);"></i></div>
-                    <span>To Bank</span>
-                </div>
-                <div class="quick-action-item">
-                    <div class="qa-icon"><i class="fa-solid fa-up-right-and-down-left-from-center" style="color: rgb(99, 230, 190);"></i></div>
-                    <span>Withdraw</span>
-                </div>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-phone-alt"></i></div>
-                    <span>Airtime</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-wifi"></i></div>
-                    <span>Data</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-futbol"></i></div>
-                    <span>Betting</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-tv"></i></div>
-                    <span>TV</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-lock"></i></div>
-                    <span>SafeBox</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <span>Loan</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-gift"></i></div>
-                    <span>Invitation</span>
-                    <span class="service-badge new">₦500</span>
-                </div>
-                <div class="service-item">
-                    <div class="s-icon"><i class="fas fa-ellipsis-h"></i></div>
-                    <span>More</span>
-                </div>
-            </div>
-
-            <!-- Promo Banner -->
-            <div class="promo-banner">
-                <div class="promo-left">
-                    <h4>Big Friday, Bigger Interest!</h4>
-                    <p>-------------------------------------------</p>
-                    <p>Fixed Savings<br>Save today and earn 25% p.a. returns.<br>Start with ₦5,000!</p>
-                    <button class="promo-btn">Go</button>
-                </div>
-                <div class="promo-right">
-                    <i class="fas fa-coins" style="color:#D4AF37;"></i>
-                </div>
-            </div>
-
-            <!-- Share Card -->
-            <div class="share-card">
-                <div class="share-avatar"><i class="fas fa-users"></i></div>
-                <div class="share-text">
-                    <h4>Share OPay with Others</h4>
-                    <p>Help a loved one get their own account in minutes</p>
-                </div>
-                <button class="share-btn">Go</button>
-            </div>
-
-            <!-- Bottom Navigation -->
-            <div class="bottom-nav">
-                <div class="nav-item active"><i class="fas fa-home"></i> Home</div>
-                <div class="nav-item"><i class="fas fa-gift"></i> Rewards</div>
-                <div class="nav-item"><i class="fas fa-chart-line"></i> Finance</div>
-                <div class="nav-item"><i class="fas fa-credit-card"></i> Cards</div>
-                <div class="nav-item"><i class="fas fa-user"></i> Me</div>
-            </div>
-        </div>
-        
+    <div id="loginError" class="auth-error hidden">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="loginErrorText">Invalid phone number.</span>
     </div>
-    <script src="script.js" type="text/javascript" charset="utf-8"></script>
-    </body>
+
+    <button class="btn-pill btn-muted" id="nextBtn">NEXT</button>
+
+    <p class="auth-bottom-text">
+      Don't have an OPay Account yet?<br>
+      <a href="#">Click here to get one</a>
+    </p>
+  </div>
+
+  <!-- ========== PASSWORD SCREEN ========== -->
+  <div id="passwordScreen" class="screen password-screen hidden">
+    <div class="auth-header">
+      <button class="back-btn" id="passwordBackBtn" aria-label="Back"><i class="fas fa-chevron-left"></i></button>
+      <a href="#" class="help-link">Help</a>
+    </div>
+
+    <div class="password-avatar">
+      <img src="user.png" alt="User avatar">
+    </div>
+
+    <p class="password-phone" id="displayPhone">0808 8923 044</p>
+    <h2 class="password-welcome">Welcome back</h2>
+
+    <label class="password-label" for="passwordInput">Enter your 6-digit Password to log in</label>
+    <fieldset class="input-group">
+      <input type="password" id="passwordInput" placeholder="Enter 6-digit Password" maxlength="6" inputmode="numeric" autocomplete="off">
+    </fieldset>
+
+    <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+
+    <div id="passwordError" class="auth-error hidden">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="passwordErrorText">Incorrect password. Try again.</span>
+    </div>
+
+    <button class="btn-pill" id="loginBtn" disabled>Log in</button>
+
+    <p class="fingerprint-link"><a href="#"><i class="fas fa-fingerprint"></i> Click to log in with Fingerprint</a></p>
+
+    <div class="keypad-panel">
+      <div class="keypad-header">
+        <span><i class="fas fa-shield-halved"></i> OPay Secure Numeric Keypad</span>
+        <a href="#" class="keypad-done">Done</a>
+      </div>
+      <div class="keypad" id="keypad">
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button class="key-blank" tabindex="-1" aria-hidden="true"></button>
+        <button data-key="0">0</button>
+        <button data-key="delete" class="key-delete" aria-label="Delete"><i class="fas fa-delete-left"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HOME SCREEN ========== -->
+  <div id="homeScreen" class="screen home-screen hidden">
+
+    <div class="home-header">
+      <div class="home-user">
+        <div class="home-avatar">
+          <img src="splash.png" alt="Profile">
+          <span class="home-badge">2</span>
+        </div>
+        <h3 class="home-greeting">Hi, JAY</h3>
+      </div>
+      <div class="home-header-icons">
+        <div class="icon-wrapper">
+          <i class="fas fa-headset"></i>
+          <span class="help-badge">HELP</span>
+        </div>
+        <div class="icon-wrapper"><i class="fas fa-qrcode"></i></div>
+        <div class="icon-wrapper">
+          <i class="fas fa-bell"></i>
+          <span class="badge-red">14</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-top">
+        <div class="balance-top-left">
+          <i class="fas fa-shield-halved"></i> Available Balance
+          <i class="fas fa-eye-slash" id="toggleBalanceIcon"></i>
+        </div>
+        <div class="balance-top-right">
+          Transaction History <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="balance-bottom">
+        <div class="balance-amount">
+          <span id="balanceDisplay">₦ 20,545,890.50</span>
+          <i class="fas fa-chevron-right balance-chevron"></i>
+        </div>
+        <button class="add-money-btn" id="addMoneyBtn"><i class="fas fa-plus"></i> Add Money</button>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <div class="quick-action-item">
+        <div class="qa-icon"><i class="fas fa-comment-dots"></i></div>
+        <span>To OPay</span>
+      </div>
+      <div class="quick-action-item">
+        <div class="qa-icon"><i class="fas fa-landmark"></i></div>
+        <span>To Bank</span>
+      </div>
+      <div class="quick-action-item">
+        <div class="qa-icon"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+        <span>Withdraw</span>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <span class="service-badge">up to 6%</span>
+        <div class="s-icon"><i class="fas fa-signal"></i></div>
+        <span>Airtime</span>
+      </div>
+      <div class="service-item">
+        <div class="s-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+        <span>Data</span>
+      </div>
+      <div class="service-item">
+        <div class="s-icon"><i class="fas fa-futbol"></i></div>
+        <span>Betting</span>
+      </div>
+      <div class="service-item">
+        <div class="s-icon"><i class="fas fa-tv"></i></div>
+        <span>TV</span>
+      </div>
+      <div class="service-item">
+        <div class="s-icon"><i class="fas fa-wallet"></i></div>
+        <span>SafeBox</span>
+      </div>
+      <div class="service-item">
+        <span class="service-badge">Hot</span>
+        <div class="s-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+        <span>Loan</span>
+      </div>
+      <div class="service-item">
+        <span class="service-badge">₦5600</span>
+        <div class="s-icon"><i class="fas fa-bullhorn"></i></div>
+        <span>Invitation</span>
+      </div>
+      <div class="service-item">
+        <div class="s-icon"><i class="fas fa-graduation-cap"></i></div>
+        <span>More</span>
+      </div>
+    </div>
+
+    <div class="promo-banner">
+      <h4>Big Friday, Bigger Interest!</h4>
+      <div class="promo-divider"></div>
+      <div class="promo-row">
+        <i class="fas fa-coins promo-coin"></i>
+        <div class="promo-text">
+          <strong>Fixed Savings</strong>
+          <p>Save today and earn 25% p.a. returns. Start with ₦5,000!</p>
+        </div>
+        <button class="btn-go promo-btn">Go</button>
+      </div>
+    </div>
+
+    <div class="share-card">
+      <div class="share-avatar"><i class="fas fa-users"></i></div>
+      <div class="share-text">
+        <h4>Share OPay with Others</h4>
+        <p>Help a loved one get their own account in minutes</p>
+      </div>
+      <button class="btn-go share-btn">Go</button>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="nav-item active"><i class="fas fa-house"></i><span>Home</span></div>
+      <div class="nav-item"><i class="fas fa-gift"></i><span>Rewards</span></div>
+      <div class="nav-item"><i class="fas fa-chart-line"></i><span>Finance</span></div>
+      <div class="nav-item"><i class="fas fa-credit-card"></i><span>Cards</span></div>
+      <div class="nav-item"><i class="fas fa-circle-user"></i><span>Me</span></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
+
 
